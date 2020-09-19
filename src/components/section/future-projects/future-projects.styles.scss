@@ -1,0 +1,23 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+section#fprojects {
+    @include background-image('pexels-andreea-ch-4178803.jpg');
+
+    .section-content {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc((100vw - 100%)/2);
+            height: 100%;
+            transform: translateX(100%);
+            background-color: $secondary;
+        }
+
+        .project-list {
+            @include mid-width('small');
+        }
+    }
+}

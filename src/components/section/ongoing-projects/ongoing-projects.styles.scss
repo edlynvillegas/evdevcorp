@@ -1,0 +1,15 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+section#oprojects {
+    @include background-image('pexels-mat-reding-4468993.jpg');
+    
+    .section-content {
+        .project-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}

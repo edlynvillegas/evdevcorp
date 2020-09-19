@@ -1,0 +1,115 @@
+@import 'variables';
+
+@mixin tablet {
+    @media only screen and (max-width: #{device(tablet) - 1px}) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media only screen and (min-width: #{device(tablet)}) and (max-width: #{device(laptop) - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: #{device(laptop) + 1px}) {
+      @content;
+    }
+}
+
+@mixin background-image($image:0) {
+    @if ($image != 0) {
+        background-image: url('./assets/images/shots/'+$image);
+    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+@mixin mid-width($s:0) {
+    width: 100%;
+    @include desktop {
+        @if ($s == 'small') {
+            max-width: 1000px;
+        } @else if ($s == 'medium') {
+            max-width: 1200px;
+        } @else {
+            max-width: 1366px;
+        }
+    }
+    @include laptop {
+        @if ($s == 'small') {
+            max-width: 800px;
+        } @else if ($s == 'medium') {
+            max-width: 920px;
+        } @else {
+            max-width: 1200px;
+        }
+    }
+    margin: 0 auto;
+}
+
+@mixin button-bg($color, $outline:0) {
+    border: 2px solid $color;
+    border-radius: 20px;
+    padding: 10px 25px;
+    transition: all 400ms ease;
+    margin: 0;
+    cursor: pointer;
+
+    @if ($outline != 0) { background: transparentize($color, 0.8); }
+    @else { background: $color; }
+
+    @if ($color == $light) {
+        @if ($outline != 0) { color: $light; }
+        &:hover {
+            @if ($outline != 0) { color: $dark; }
+            @else { color: $light; }
+        }
+    } @else {
+        @if (lightness($color) > 50) {
+            color: $dark;
+        } @else {
+            color: $light;
+        }
+    }
+
+    &:hover {
+        @if ($outline != 0) { background: $color; }
+        @else { background: transparentize($color, 0.8); }
+    }
+    &:active {
+        background: darken($color, 25%);
+    }
+}
+
+// @mixin button-bg-outline($color) {
+//     border: 2px solid $color;
+//     background: transparentize($color, 0.8);
+//     border-radius: 20px;
+//     padding: 10px 25px;
+//     transition: all 400ms ease;
+//     margin: 0;
+//     cursor: pointer;
+
+//     @if ($color == $light) {
+//         color: $light;
+//         &:hover {
+//             color: $dark;
+//         }
+//     } @else {
+//         @if (lightness($color) > 50) {
+//             color: $dark;
+//         } @else {
+//             color: $light;
+//         }
+//     }
+
+//     &:hover {
+//         background-color: $color;
+//     }
+//     &:active {
+//         background: darken($color, 25%);
+//     }
+// }

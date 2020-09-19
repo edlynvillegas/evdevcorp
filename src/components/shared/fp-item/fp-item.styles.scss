@@ -1,0 +1,99 @@
+@import '../../../variables';
+
+.fp-item {
+    position: relative;
+    // max-width: 760px;
+
+    .fp-content {
+        position: relative;
+        display: flex;
+        padding: 1em 0;
+
+        figure {
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            transform: translate(10px, 10px);
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                transition: all 1000ms ease 600ms;
+            }
+        }
+        .fp-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+            padding: 5em 2.3em;
+            background-color: $primary;
+            transform: translate(-10px, -10px);
+            transition: all 1000ms ease 600ms;
+
+            div > p {
+                margin: 0;
+
+                &:first-of-type {
+                    font-size: 2.3em;
+                    color: $secondary;
+                    text-transform: uppercase;
+
+                    span {
+                        display: block;
+                        color: $light;
+                    }
+                }
+                &:last-of-type {
+                    font-size: 0.8em;
+                    color: transparentize($light, 0.4);
+                    margin: 2em 0;
+                    line-height: 2;
+                }
+            }
+
+            button {
+                display: inline-block;
+                transition: transform 600ms ease 600ms, opacity 1000ms ease 600ms, background 400ms ease;
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transform: translate(calc(100% - 1.5em), 1.5em) rotate(-90deg);
+                transform-origin: left;
+                opacity: 0.2;
+
+                p {
+                    font-size: 3em;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+            }
+        }
+    }
+}
+
+.active > .fp-item {
+    .fp-content {
+        figure {
+            img {
+                transform: scale(1.2);
+            }
+        }
+        .fp-info {
+            button {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+}

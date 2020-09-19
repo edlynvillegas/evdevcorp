@@ -1,0 +1,157 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+section#teams {
+    @include background-image('pexels-kateryna-babaieva-2747017.jpg');
+
+    .section-content {
+        padding-top: 8em;
+
+        .team-list {
+            display: flex;
+
+            .team-item {
+                position: relative;
+                flex: 1;
+                width: calc(100% / 3);
+                height: 440px;
+                margin: 0 10px;
+                transition: box-shadow 400ms ease;
+                overflow: hidden;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                & > img {
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
+
+                .item-info {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 3em 2em;
+                    transition: all 400ms ease;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 0;
+                        background-color: $secondary;
+                        transition: height 400ms ease;
+                    }
+
+                    figure {
+                        margin: 0;
+                        padding: 0;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        border: 1px solid $light;
+                        margin-bottom: 5px;
+                        transition: opacity 600ms ease;
+                        opacity: 0;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            transition: transform 400ms ease;
+                            transform: scale(0.8);
+                        }
+                    }
+
+                    p {
+                        margin: 0;
+                        transition: transform 500ms ease, opacity 300ms ease;
+                        transform: translateX(-100%);
+                        opacity: 0;
+
+                        &:nth-of-type(1) {
+                            font-size: 1.5em;
+                            text-transform: uppercase;
+                            margin-bottom: 5px;
+                        }
+                        &:nth-of-type(2) {
+                            font-size: 0.8em;
+                            color: $secondary;
+                            margin-bottom: 20px;
+                            transition-delay: 100ms;
+                        }
+                        &:nth-of-type(3) {
+                            font-size: 0.6em;
+                            line-height: 2;
+                            transition-delay: 200ms;
+                        }
+                    }
+
+                    & > div:last-child {
+                        a {
+                            display: inline-block;
+                            margin-right: 5px;
+                            transition: transform 500ms ease, opacity 300ms ease;
+                            transform: translateY(100%);
+                            opacity: 0;
+
+                            &:nth-child(2) { transition-delay: 100ms; }
+                            &:nth-child(3) { transition-delay: 200ms; }
+                            &:nth-child(4) { transition-delay: 300ms; }
+                            
+                            svg {
+                                display: block;
+                                path:last-child {
+                                    fill: $light;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    box-shadow: 0 0 3em -1em rgba(0, 0, 0, 0.65);
+
+                    .item-info {
+                        background-color: transparentize(darken($primary, 0.5%), 0.4);
+
+                        &::before {
+                            height: 10px;
+                        }
+
+                        figure {
+                            opacity: 1;
+
+                            img {
+                                transform: scale(1);
+                            }
+                        }
+
+                        p {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+
+                        & > div:last-child {
+                            a {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

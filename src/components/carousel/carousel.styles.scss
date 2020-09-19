@@ -1,0 +1,7 @@
+.carousel {
+    .carousel-slider {
+        &>div {
+            display: inline-block;
+        }
+    }
+}

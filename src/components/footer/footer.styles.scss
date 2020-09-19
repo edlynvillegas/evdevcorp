@@ -1,0 +1,17 @@
+@import '../../variables';
+@import '../../mixins';
+
+footer {
+    position: relative;
+    display: block;
+    border-top: 0.5em solid $secondary;
+
+    .footer-content {
+        position: relative;
+        display: flex;
+        @include mid-width;
+        padding: 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

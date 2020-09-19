@@ -1,0 +1,54 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+section#about {
+    .section-content {
+        margin-bottom: -5em;
+        padding-left: 5em;
+        padding-right: 20px;
+        background-color: lighten($primary, 86%);
+        color: $dark;
+        z-index: 1;
+        
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: calc((100vw - 100%)/2);
+            height: 100%;
+        }
+
+        &::before {
+            left: 0;
+            height: calc(100% - 5em);
+            background-color: $secondary;
+            transform: translateX(-100%);
+        }
+        &::after {
+            right: 0;
+            background-color: lighten($primary, 86%);
+            transform: translateX(100%);
+        }
+
+        .about-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+
+            .about-item {
+                p {
+                    margin-top: 0;
+
+                    &:first-of-type {
+                        font-size: 2em;
+                        margin-bottom: 10px;
+                    }
+                    &:last-of-type {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+}

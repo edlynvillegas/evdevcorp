@@ -1,0 +1,32 @@
+// UI Colors
+$light: #fff;
+$dark: #252525;
+$primary: #0b122e;
+$secondary: #ffb400;
+
+$breakpoints: (
+    tablet: 768px,
+    // laptop: 1024px,
+    laptop: 1440px
+);
+
+@function device($key) {
+    @if map-has-key($breakpoints, $key) {
+      @return map-get($breakpoints, $key);
+    }
+  
+    @warn "Unknown `#{$key}` in $breakpoints.";
+    @return null;
+}
+
+
+.font_anton { font-family: 'Anton', sans-serif; }
+.font_poppins {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+
+  &.light { font-weight: 300; }
+  &.regular { font-weight: 400; }
+  &.medium { font-weight: 500; }
+}
