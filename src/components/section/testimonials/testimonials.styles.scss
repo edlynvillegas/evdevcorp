@@ -1,8 +1,11 @@
-@import '../../../variables';
 @import '../../../mixins';
 
-section#fprojects {
-    @include background-image('pexels-andreea-ch-4178803.jpg');
+section#testimonials {
+    @include background-image('pexels-freestocksorg-410730.jpg');
+
+    &::before {
+        background-color: darken($primary, 5%);
+    }
 
     .section-content {
         &::before {
@@ -16,8 +19,9 @@ section#fprojects {
             background-color: $secondary;
         }
 
-        .project-list {
-            @include mid-width('small');
+        .testimonial-list {
+            position: relative;
+            width: calc(100% + ((100vw - 100%)/4) + 20px);
         }
     }
 }

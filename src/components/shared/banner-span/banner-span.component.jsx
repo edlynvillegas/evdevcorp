@@ -1,30 +1,30 @@
 import React from 'react'
 import './banner-span.styles.scss'
 // SVGs
-import { ReactComponent as SearchSVG } from '../../../assets/images/icons/search.svg'
-import { ReactComponent as BuildingSVG } from '../../../assets/images/icons/building.svg'
-import { ReactComponent as CalendarSVG } from '../../../assets/images/icons/calendar.svg'
+import { ReactComponent as StrategySVG } from '../../../assets/images/icons/strategy.svg'
+import { ReactComponent as ToolsSVG } from '../../../assets/images/icons/tools.svg'
+import { ReactComponent as SpeechSVG } from '../../../assets/images/icons/speech.svg'
 
 const BannerSpan = () => {
     return(
         <div className="banner-span">
-            <div className="span-content">
-                <div className="span-item">
-                    <SearchSVG />
+            <div className="span-content grid">
+                <div className="span-item grid__col-4">
+                    <StrategySVG />
                     <div>
-                        <p>Find a Home</p>
+                        <p>How We Work</p>
                         <p>Find your next dream home</p>
                     </div>
                 </div>
-                <div className="span-item">
-                    <BuildingSVG />
+                <div className="span-item grid__col-4">
+                    <ToolsSVG />
                     <div>
-                        <p>Explore Property</p>
+                        <p>What We Do</p>
                         <p>Visit the properties</p>
                     </div>
                 </div>
-                <div className="span-item">
-                    <CalendarSVG />
+                <div className="span-item grid__col-4">
+                    <SpeechSVG />
                     <div>
                         <p>Get a Quote</p>
                         <p>Seeking a Good Life?</p>

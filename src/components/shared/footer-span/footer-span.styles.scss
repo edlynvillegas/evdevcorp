@@ -1,21 +1,20 @@
 @import '../../../mixins';
 
-.banner-span {
-    background-color: $primary;
+.footer-span {
+    background-color: $secondary;
 
     .span-content {
         @include mid-width('medium');
         height: 100%;
-        padding: 20px 0;
+        padding: 40px 0;
         align-items: center;
         justify-content: space-around;
 
         .span-item {
             display: flex;
-            padding: 0 10px;
+            padding: 10px;
             align-items: center;
             justify-content: center;
-            border-right: 1px solid $light;
 
             &:last-child { border-right: none; }
 
@@ -23,7 +22,7 @@
                 @include prefix((transform: scale(1.5)));
 
                 path {
-                    fill: $light;
+                    fill: $primary;
                 }
             }
 
@@ -32,6 +31,7 @@
 
                 p {
                     margin: 0;
+                    color: $primary;
                     
                     &:first-child {
                         font-weight: 500;

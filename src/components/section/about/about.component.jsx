@@ -11,10 +11,10 @@ const AboutSection = () => {
             <div className="section-content">
                 <p className="section-title">About us</p>
 
-                <div className="about-list">
+                <div className="about-list grid grid--gap-20">
                     {
                         timeline.map(({year, description}, index) => (
-                            <div className="about-item" key={index}>
+                            <div className="about-item grid__col-4" key={index}>
                                 <p>{year}</p>
                                 <p>{description}</p>
                             </div>

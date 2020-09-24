@@ -1,0 +1,150 @@
+@import '../../../mixins';
+
+.team-item {
+    position: relative;
+    height: 440px;
+    @include prefix((
+        transition: box-shadow 400ms ease
+    ));
+    overflow: hidden;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .item-info {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 3em 2em;
+        @include prefix((
+            transition: all 400ms ease
+        ));
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: $secondary;
+            @include prefix((
+                transition: height 400ms ease
+            ));
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid $light;
+            margin-bottom: 5px;
+            @include prefix((
+                transition: opacity 600ms ease
+            ));
+            opacity: 0;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                @include prefix((
+                    transition: transform 400ms ease,
+                    transform: scale(0.8)
+                ));
+            }
+        }
+
+        p {
+            margin: 0;
+            @include prefix((
+                transition: (transform 500ms ease, opacity 300ms ease),
+                transform: translateX(-100%)
+            ));
+            opacity: 0;
+
+            &:nth-of-type(1) {
+                font-size: 1.5em;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            &:nth-of-type(2) {
+                font-size: 0.8em;
+                color: $secondary;
+                margin-bottom: 20px;
+            }
+            &:nth-of-type(3) {
+                font-size: 0.6em;
+                line-height: 2;
+            }
+            @include nth-transition-delay(2, 3);
+        }
+
+        & > div:last-child {
+            a {
+                display: inline-block;
+                margin-right: 5px;
+                @include prefix((
+                    transition: (transform 500ms ease, opacity 300ms ease),
+                    transform: translateY(100%)
+                ));
+                opacity: 0;
+                @include nth-transition-delay(2, 3);
+                
+                svg {
+                    display: block;
+                    path:last-child {
+                        fill: $light;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 3em -1em rgba(0, 0, 0, 0.65);
+
+        .item-info {
+            background-color: transparentize(darken($primary, 0.5%), 0.4);
+
+            &::before {
+                height: 10px;
+            }
+
+            figure {
+                opacity: 1;
+
+                img {
+                    @include prefix((
+                        transform: scale(1)
+                    ));
+                }
+            }
+
+            p {
+                @include prefix((
+                    transform: translateX(0)
+                ));
+                opacity: 1;
+            }
+
+            & > div:last-child {
+                a {
+                    @include prefix((
+                        transform: translateY(0)
+                    ));
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

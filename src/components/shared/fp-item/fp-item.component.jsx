@@ -3,6 +3,11 @@ import './fp-item.styles.scss'
 
 const FPItem = ({ title, description, image }) => {
     const split_title = title.split(' ')
+
+    const viewProject = () => {
+        console.log(title)
+    }
+    
     return(
         <div className="fp-item">
             <div className="fp-content">
@@ -15,7 +20,7 @@ const FPItem = ({ title, description, image }) => {
                         <p>{description}</p>
                     </div>
                     <div>
-                        <button className="btn-secondary">View Project</button>
+                        <button className="btn-secondary" onClick={() => viewProject()}>View Project</button>
                     </div>
                     {/* <span><p>{split_title[0]}</p></span> */}
                 </div>

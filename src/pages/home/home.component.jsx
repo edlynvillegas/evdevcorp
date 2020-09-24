@@ -3,6 +3,7 @@ import './home.styles.scss'
 // Components
 import Banner from '../../components/shared/banner/banner.component'
 import BannerSpan from '../../components/shared/banner-span/banner-span.component'
+import FooterSpan from '../../components/shared/footer-span/footer-span.component'
 // Images
 import BackgroundImage from '../../assets/images/shots/banner_main.jpg'
 // Sections
@@ -11,6 +12,7 @@ import FutureProjectsSection from '../../components/section/future-projects/futu
 import AboutSection from '../../components/section/about/about.component'
 import TeamSection from '../../components/section/team/team.component'
 import OngoingProjects from '../../components/section/ongoing-projects/ongoing-projects.component'
+import Testomonials from '../../components/section/testimonials/testimonials.component'
 
 const Home = () => {
     return(
@@ -22,6 +24,8 @@ const Home = () => {
             <AboutSection/>
             <TeamSection/>
             <OngoingProjects/>
+            <Testomonials/>
+            <FooterSpan/>
         </>
     )
 }

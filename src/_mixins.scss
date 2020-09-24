@@ -1,20 +1,53 @@
 @import 'variables';
 
-@mixin tablet {
-    @media only screen and (max-width: #{device(tablet) - 1px}) {
-        @content;
+@mixin grid--gap() {
+    &.grid--gap-10 {
+        margin: -5px;
+        & > * { margin: 5px; }
+    }
+    &.grid--gap-15 {
+        margin: -7.5px;
+        & > * { margin: 7.5px; }
+    }
+    &.grid--gap-20 {
+        margin: -10px;
+        & > * { margin: 10px; }
     }
 }
 
-@mixin laptop {
-    @media only screen and (min-width: #{device(tablet)}) and (max-width: #{device(laptop) - 1px}) {
-        @content;
-    }
-}
+@mixin grid__col-x {
+    @for $i from 1 through $columns {
+        $wd: 100% / ($columns / $i);
 
-@mixin desktop {
-    @media only screen and (min-width: #{device(laptop) + 1px}) {
-      @content;
+        @include desktop {
+            .grid__col-dk-#{$i} { width: $wd; }
+            @each $var in 10, 20 {
+                &.grid--gap-#{$var} > .grid__col-dk-#{$i} { @include prefix((width: calc(#{$wd} - #{$var}px)), true, webkit moz); }
+            }
+        }
+        @include laptop($max: true) {
+            .grid__col-lp-#{$i} { width: $wd; }
+            @each $var in 10, 20 {
+                &.grid--gap-#{$var} > .grid__col-lp-#{$i} { @include prefix((width: calc(#{$wd} - #{$var}px)), true, webkit moz); }
+            }
+        }
+        @include tablet($max: true) {
+            .grid__col-tb-#{$i} { width: $wd; }
+            @each $var in 10, 20 {
+                &.grid--gap-#{$var} > .grid__col-tb-#{$i} { @include prefix((width: calc(#{$wd} - #{$var}px)), true, webkit moz); }
+            }
+        }
+        @include mobile {
+            .grid__col-mb-#{$i} { width: $wd; }
+            @each $var in 10, 20 {
+                &.grid--gap-#{$var} > .grid__col-mb-#{$i} { @include prefix((width: calc(#{$wd} - #{$var}px)), true, webkit moz); }
+            }
+        }
+
+        .grid__col-#{$i} { width: $wd; }
+        @each $var in 10, 20 {
+            &.grid--gap-#{$var} > .grid__col-#{$i} { @include prefix((width: calc(#{$wd} - #{$var}px)), true, webkit moz); }
+        }
     }
 }
 
@@ -84,32 +117,54 @@
     }
 }
 
-// @mixin button-bg-outline($color) {
-//     border: 2px solid $color;
-//     background: transparentize($color, 0.8);
-//     border-radius: 20px;
-//     padding: 10px 25px;
-//     transition: all 400ms ease;
-//     margin: 0;
-//     cursor: pointer;
+@mixin nth-transition-delay($start:1, $end:1, $interval:100, $type: of-type) {
+    @for $i from $start through $end {
+        #{'&:nth-'+$type}(#{$i}) {
+            @include prefix((transition-delay: #{$interval * ($i - 1)}ms));
+        }
+    }
+}
 
-//     @if ($color == $light) {
-//         color: $light;
-//         &:hover {
-//             color: $dark;
-//         }
-//     } @else {
-//         @if (lightness($color) > 50) {
-//             color: $dark;
-//         } @else {
-//             color: $light;
-//         }
-//     }
+// CSS PREFIXER
+@mixin prefix($declarations, $valprefix: false, $prefixes: (webkit, moz, ms)) {
+    @each $property, $value in $declarations {
 
-//     &:hover {
-//         background-color: $color;
-//     }
-//     &:active {
-//         background: darken($color, 25%);
-//     }
-// }
+        @if $valprefix {
+            @each $prefix in $prefixes {
+                #{$property}: #{'-' + $prefix + '-' + $value}
+            }
+        } @else {
+            @each $prefix in $prefixes {
+                #{'-' + $prefix + '-' + $property}: $value;
+            }
+        }
+        // Output standard non-prefixed declaration
+        #{$property}: $value;
+    }
+}
+
+// MEDIA QUERIES
+@mixin mobile() {
+    @media only screen and (max-width: #{device(mobile)}) { @content; }
+}
+@mixin tablet($min: false, $max: false) {
+    @if $min {
+        @media only screen and (min-width: #{device(mobile) + 1px}) { @content; }
+    } @else if $max {
+        @media only screen and (max-width: #{device(tablet)}) { @content; }
+    } @else {
+        @media only screen and (min-width: #{device(mobile) + 1px}) and (max-width: #{device(tablet)}) { @content; }
+    }
+}
+@mixin laptop($min: false, $max: false) {
+    @if $min {
+        @media only screen and (min-width: #{device(tablet) + 1px}) { @content; }
+    } @else if $max {
+        @media only screen and (max-width: #{device(laptop)}) { @content; }
+    } @else {
+        @media only screen and (min-width: #{device(tablet) + 1px}) and (max-width: #{device(laptop)}) { @content; }
+    }
+}
+@mixin desktop {
+    @media only screen and (min-width: #{device(laptop) + 1px}) { @content; }
+}

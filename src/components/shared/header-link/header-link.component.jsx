@@ -3,7 +3,6 @@ import { Link, useRouteMatch } from 'react-router-dom'
 
 const HeaderLink = ({path, name, icon}) => {
     let match = useRouteMatch(path);
-    // let history = useHistory();
     let styles = 'link-item';
     if (match?.isExact) styles += ' active'
     

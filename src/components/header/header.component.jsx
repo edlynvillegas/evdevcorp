@@ -16,7 +16,7 @@ const Header = () => {
     return(
         <header>
             <div className="header-content">
-                <Link className="logo" to="/" title="Home">SM<span>DevCorp.</span></Link>
+                <Link className="logo" to="/" title="Home">EV<span>DevCorp.</span></Link>
                 
                 <ul className="header-links">
                     { routes.map(route => <HeaderLink key={route.path} {...route} />) }

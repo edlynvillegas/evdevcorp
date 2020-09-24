@@ -14,8 +14,15 @@ export const ContentContext = createContext();
 
 const ContentProvider = ({ children }) => {
     const data = {
-        title: 'SMDevCorp.',
+        title: 'EVDevCorp.',
         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+        hotline: "8-700-350",
+        email: 'inquire@evdevcorp.com',
+        address: 'ESV Corporation',
+        schedule: {
+            day: 'Monday - Friday',
+            time: '8AM - 8PM'
+        },
         services: [
             {
                 id: 1,
@@ -160,6 +167,29 @@ const ContentProvider = ({ children }) => {
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
                 address: 'Flex Avenue, Cainta',
                 image: CharmIMG
+            }
+        ],
+        testimonials: [
+            {
+                name: 'Mary Li',
+                position: 'CEO, Green Residences',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+                image: GreenIMG,
+                ratings: 5
+            },
+            {
+                name: 'James Bond',
+                position: 'CEO, James Bond Corp',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+                image: CharmIMG,
+                ratings: 5
+            },
+            {
+                name: 'Mary Li',
+                position: 'CEO, Green Residences',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+                image: GreenIMG,
+                ratings: 4
             }
         ]
     }

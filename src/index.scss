@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'mixins';
-// @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import 'utilities';
+
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500&display=swap');
 
 *, *::before, *::after {
@@ -67,12 +68,3 @@ section {
       }
   }
 }
-
-// Global CSS
-.full-vh { height: 100vh; }
-.half-vh { height: 50vh; }
-
-.btn-light { @include button-bg($light); }
-.btn-light-outline { @include button-bg($light, true); }
-.btn-primary { @include button-bg($primary); }
-.btn-secondary { @include button-bg($secondary); }

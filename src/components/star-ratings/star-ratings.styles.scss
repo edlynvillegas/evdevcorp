@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.star-ratings {
+    svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 3px;
+
+        &:last-of-type { margin-right: 0; }
+        &.filled {
+            path:last-child {
+                fill: $secondary;
+            }
+        }
+        path:last-child {
+            fill: transparentize(#000, 0.6);
+        }
+    }
+}
