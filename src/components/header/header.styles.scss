@@ -1,5 +1,5 @@
+@import '../../variables';
 @import '../../mixins';
-@import '../../utilities';
 
 header {
     position: absolute;
@@ -20,34 +20,11 @@ header {
         justify-content: space-between;
 
         a.logo {
-            @extend .font_anton;
             font-size: 2em;
             color: $light;
 
             span {
                 color: $secondary;
-            }
-        }
-
-        ul.header-links {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-
-            li {
-                display: inline-block;
-                margin-left: 15px;
-
-                a {
-                    @extend .font_poppins;
-                    color: $light;
-                }
-
-                &.active {
-                    a {
-                        color: $secondary;
-                    }
-                }
             }
         }
     }

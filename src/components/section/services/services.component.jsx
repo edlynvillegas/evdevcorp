@@ -9,7 +9,7 @@ const ServicesSection = () => {
     const { services } = useContext(ContentContext)
 
     return(
-        <section id="service">
+        <section id="service" aria-labelledby="services_section">
             <div className="section-content">
                 <p className="section-title">High quality construction solutions<br/>for residentials & industries</p>
                 <div className="service-list grid grid--gap-20">

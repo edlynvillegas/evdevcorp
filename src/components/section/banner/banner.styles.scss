@@ -1,3 +1,4 @@
+@import '../../../variables';
 @import '../../../mixins';
 @import '../../../utilities';
 
@@ -29,9 +30,9 @@ section.banner {
             font-size: 2.5em;
             max-width: 35vw;
             margin: 0 0 10px;
+            line-height: 1.2;
         }
         p {
-            @extend .font_poppins;
             font-size: 1em;
             max-width: 30vw;
             margin: 0 0 10px;

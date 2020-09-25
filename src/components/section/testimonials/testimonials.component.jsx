@@ -1,23 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useRef } from 'react'
 import './testimonials.styles.scss'
-// Providers
-import { ContentContext } from '../../../providers/ContentProvider'
 // Components
-import TestimonialItem from '../../shared/testimonial-item/testimonial-item.component'
+import TestimonialList from '../../shared/testimonial-list/testimonial-list.component'
+// Custom Hooks
+import useElementScroll from '../../../utils/useElementScroll'
 
 const Testimonials = () => {
-    const { testimonials } = useContext(ContentContext)
+    const tmRef = useRef();
+    const { isPassed } = useElementScroll(tmRef.current)
     
     return(
-        <section id="testimonials">
-            <div className="section-content">
+        <section id="testimonials" aria-labelledby="testimonials_section" ref={tmRef}>
+            <div className={`section-content --right${isPassed ? ` --up` : ''}`}>
                 <p className="section-title">Why people loves our services</p>
-
-                <div className="testimonial-list grid grid--gap-20">
-                    {
-                        testimonials.map((item, index) => <TestimonialItem {...item} key={index} />)
-                    }
-                </div>
+                <TestimonialList/>
             </div>
         </section>
     )

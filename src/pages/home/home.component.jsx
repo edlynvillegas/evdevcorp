@@ -1,9 +1,7 @@
 import React from 'react'
 import './home.styles.scss'
 // Components
-import Banner from '../../components/shared/banner/banner.component'
-import BannerSpan from '../../components/shared/banner-span/banner-span.component'
-import FooterSpan from '../../components/shared/footer-span/footer-span.component'
+import Banner from '../../components/section/banner/banner.component'
 // Images
 import BackgroundImage from '../../assets/images/shots/banner_main.jpg'
 // Sections
@@ -18,14 +16,12 @@ const Home = () => {
     return(
         <>
             <Banner state='Main' bg={BackgroundImage} />
-            <BannerSpan/>
             <ServicesSection/>
             <FutureProjectsSection/>
             <AboutSection/>
             <TeamSection/>
             <OngoingProjects/>
             <Testomonials/>
-            <FooterSpan/>
         </>
     )
 }

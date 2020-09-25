@@ -1,0 +1,8 @@
+@import '../../../mixins';
+
+.testimonial-list {
+    position: relative;
+    @include prefix((
+        width: calc(100% + ((100vw - 100%)/4) + 20px)
+    ), true, webkit moz)
+}

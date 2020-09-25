@@ -1,26 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useRef } from 'react'
 import './future-projects.styles.scss'
-// Providers
-import { ContentContext } from '../../../providers/ContentProvider'
 // Components
-import Carousel from '../../carousel/carousel.component'
-import FPItem from '../../shared/fp-item/fp-item.component'
+import FPList from '../../shared/fp-list/fp-list.component'
+// Custom Hooks
+import useElementScroll from '../../../utils/useElementScroll'
 
 const FutureProjectsSection = () => {
-    const { pending_projects } = useContext(ContentContext)
+    const fpRef = useRef();
+    const { isVisible, isPassed } = useElementScroll(fpRef.current)
 
     return(
-        <section id="fprojects">
-            <div className="section-content">
+        <section id="fprojects" aria-labelledby="future_projects_section" ref={fpRef}>
+            <div className={`section-content --right${isPassed ? ` --up` : ''}`}>
                 <p className="section-title">The future projects</p>
-
-                <div className="project-list">
-                    <Carousel
-                        autoplay
-                        autoplayInterval={6000}
-                        transition={{ms: 1200, easing: 'ease'}}
-                        slides={pending_projects.map(proj => <FPItem key={proj.id} {...proj} />)} />
-                </div>
+                <FPList isVisible={isVisible} />
             </div>
         </section>
     )

@@ -1,8 +1,7 @@
 import React from 'react'
 import './properties.styles.scss'
 // Components
-import Banner from '../../components/shared/banner/banner.component'
-import BannerSpan from '../../components/shared/banner-span/banner-span.component'
+import Banner from '../../components/section/banner/banner.component'
 // Images
 import BackgroundImage from '../../assets/images/shots/banner_main.jpg'
 // Components
@@ -13,7 +12,6 @@ const Properties = () => {
     return(
         <>
             <Banner state='Properties' bg={BackgroundImage} />
-            <BannerSpan/>
             <FutureProjects/>
             <OngoingProjects/>
         </>

@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import './App.css';
+import './App.scss';
 // Providers
 import ContentProvider from './providers/ContentProvider'
 // Components
@@ -25,12 +25,14 @@ function App() {
     <ContentProvider>
       <Header/>
         {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <React.StrictMode>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/properties' component={Properties} />
             <Route exact path='/services' component={Services} />
           </Switch>
+        </React.StrictMode>
         {/* </Suspense> */}
       <Footer/>
     </ContentProvider>

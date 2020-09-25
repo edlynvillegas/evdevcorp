@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import './fp-item.styles.scss'
 
 const FPItem = ({ title, description, image }) => {
     const split_title = title.split(' ')
 
-    const viewProject = () => {
+    const viewProject = useCallback(() => {
         console.log(title)
-    }
+        // eslint-disable-next-line
+    }, [])
     
     return(
         <div className="fp-item">

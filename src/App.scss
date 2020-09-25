@@ -1,0 +1,110 @@
+@import 'variables';
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: $light;
+  background-color: $primary;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button { 
+  font-family: 'Poppins', sans-serif;
+}
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $primary;
+      opacity: 0.8;
+  }
+
+  .section-content {
+      position: relative;
+      @include mid-width('medium');
+      height: 100%;
+      padding: 4em 0 6em;
+
+      &.--right::before,
+      &.--left::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include prefix((width: calc((100vw - 100%)/2)), true, webkit moz);
+        height: 0;
+        @include prefix((transition: height 1.3s ease 400ms, transform: translateX(100%)));
+        background-color: $secondary;
+      }
+      &.--left::before { left: 0; right: unset; @include prefix((transform: translateX(-100%))); }
+      
+      &.--right.--down::before, &.--left.--down::before { height: 100%; }
+      &.--right.--up::before, &.--left.--up::before { top: unset; bottom: 0; height: 100%; }
+
+      p.section-title {
+        font-family: 'Anton', sans-serif;
+        text-transform: capitalize;
+        font-size: 1.6em;
+        line-height: 1.6;
+        margin-top: 0;
+      }
+  }
+}
+
+.full-vh { height: 100vh; }
+.half-vh { height: 50vh; }
+
+.btn-light { @include button-bg($light); }
+.btn-light-outline { @include button-bg($light, true); }
+.btn-primary { @include button-bg($primary); }
+.btn-secondary { @include button-bg($secondary); }
+
+.grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    @include grid--gap;
+    @include grid__col-x;
+}
+
+.font_anton { font-family: 'Anton', sans-serif; }
+.font_poppins {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+
+@include font-weight;

@@ -1,3 +1,4 @@
+@import '../../../variables';
 @import '../../../mixins';
 
 section#testimonials {
@@ -5,23 +6,5 @@ section#testimonials {
 
     &::before {
         background-color: darken($primary, 5%);
-    }
-
-    .section-content {
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            @include prefix((width: calc((100vw - 100%)/2)), true, webkit moz);
-            height: 100%;
-            @include prefix((transform: translateX(100%)));
-            background-color: $secondary;
-        }
-
-        .testimonial-list {
-            position: relative;
-            width: calc(100% + ((100vw - 100%)/4) + 20px);
-        }
     }
 }

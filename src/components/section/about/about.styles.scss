@@ -1,3 +1,4 @@
+@import '../../../variables';
 @import '../../../mixins';
 
 section#about {
@@ -8,45 +9,20 @@ section#about {
         background-color: lighten($primary, 86%);
         color: $dark;
         z-index: 1;
-        
-        &::before,
+
         &::after {
             content: '';
             position: absolute;
             top: 0;
-            @include prefix((width: calc((100vw - 100%)/2)), true);
-            height: 100%;
-        }
-
-        &::before {
-            left: 0;
-            background-color: $secondary;
-            @include prefix((
-                width: calc(100% - 5em),
-                height: calc(100% - 5em)
-            ), true);
-            @include prefix((transform: translateX(-100%)));
-        }
-        &::after {
             right: 0;
+            height: 100%;
+            @include prefix((width: calc((100vw - 100%)/2)), true);
             background-color: lighten($primary, 86%);
             @include prefix((transform: translateX(100%)));
         }
 
-        .about-list {
-            .about-item {
-                p {
-                    margin-top: 0;
-
-                    &:first-of-type {
-                        font-size: 2em;
-                        margin-bottom: 10px;
-                    }
-                    &:last-of-type {
-                        font-size: 0.8em;
-                    }
-                }
-            }
+        &.--down::before {
+            @include prefix((height: calc(100% - 5em)), true);
         }
     }
 }

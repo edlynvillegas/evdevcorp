@@ -1,7 +1,7 @@
 import React from 'react'
 import './properties.styles.scss'
 // Components
-import Banner from '../../components/shared/banner/banner.component'
+import Banner from '../../components/section/banner/banner.component'
 
 const Contact = () => {
     return(

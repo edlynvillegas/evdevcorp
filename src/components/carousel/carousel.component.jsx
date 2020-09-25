@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './carousel.styles.scss'
 // Custom Hooks
 import useTimeout from '../../utils/useTimeout'
@@ -9,36 +9,35 @@ const Carousel = props => {
     const { autoplay = false,
             autoplayInterval = 2000,
             transition = { ms: 400, easing: 'ease' },
-            slides,
-            ...rest } = props;
+            slides } = props;
     const count = React.Children.count(slides)
     const [activeIndex, setActiveIndex] = useState(-1)
     const [order, setOrder] = useState('ltr')
+    // console.log('carousel')
 
     useEffect(() => {
         return () => clear()
         // eslint-disable-next-line
     }, [])
 
-    useEffect(() => {
-        // console.log('ORDER CHANGED!', order)
-        orderOnChange()
-        // eslint-disable-next-line
-    }, [order])
-
-    const activeOnChange = () => {
+    const activeOnChange = useCallback(() => {
         clear()
         if (order === 'ltr' && activeIndex>=count-1) setOrder('rtl')
         else if (order === 'rtl' && activeIndex<=0) setOrder('ltr')
         else orderOnChange()
         reset()
         // eslint-disable-next-line
-    };
+    }, [activeIndex]);
 
-    const orderOnChange = () => {
+    useEffect(() => {
+        orderOnChange()
+        // eslint-disable-next-line
+    }, [order])
+
+    const orderOnChange = useCallback(() => {
         if (order === 'ltr') setActiveIndex(index => index + 1)
         else setActiveIndex(index => index - 1)
-    }
+    }, [order])
     
     const timeoutMS = autoplay && transition.ms > autoplayInterval ? transition.ms + 1000 : autoplayInterval;
     const { clear, reset } = useTimeout(activeOnChange, timeoutMS, !!autoplay && count > 1)
@@ -56,7 +55,7 @@ const Carousel = props => {
     // })
     
     return(
-        <div className="carousel" {...rest}>
+        <div className="carousel" aria-labelledby="carousel">
             <div className="carousel-slider"
                 style={{
                     width:`${count*100}%`,

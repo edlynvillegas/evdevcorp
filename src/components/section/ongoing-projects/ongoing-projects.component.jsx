@@ -9,7 +9,7 @@ const OngoingProjects = () => {
     const { projects } = useContext(ContentContext)
 
     return(
-        <section id="oprojects">
+        <section id="oprojects" aria-labelledby="ongoing_projects_section">
             <div className="section-content">
                 <p className="section-title">On-going projects</p>
 

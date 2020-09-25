@@ -1,26 +1,20 @@
-import React, { useContext } from 'react'
+
+import React, { useRef } from 'react'
 import './about.styles.scss'
-// Providers
-import { ContentContext } from '../../../providers/ContentProvider'
+// Components
+import AboutList from '../../shared/about-list/about-list.component'
+// Custom Hooks
+import useElementScroll from '../../../utils/useElementScroll'
 
 const AboutSection = () => {
-    const { timeline } = useContext(ContentContext)
-
+    const abtRef = useRef(null);
+    const { isPassed } = useElementScroll(abtRef.current)
+    
     return(
-        <section id="about">
-            <div className="section-content">
+        <section id="about" aria-labelledby="about_section" ref={abtRef}>
+            <div className={`section-content --left${isPassed ? ` --down` : ''}`}>
                 <p className="section-title">About us</p>
-
-                <div className="about-list grid grid--gap-20">
-                    {
-                        timeline.map(({year, description}, index) => (
-                            <div className="about-item grid__col-4" key={index}>
-                                <p>{year}</p>
-                                <p>{description}</p>
-                            </div>
-                        ))
-                    }
-                </div>
+                <AboutList/>
             </div>
         </section>
     )

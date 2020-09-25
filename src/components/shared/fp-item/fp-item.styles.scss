@@ -1,7 +1,9 @@
+@import '../../../variables';
 @import '../../../mixins';
 
 .fp-item {
     position: relative;
+    padding: 10px;
 
     .fp-content {
         position: relative;
@@ -13,6 +15,7 @@
             margin: 0;
             padding: 0;
             width: 50%;
+            height: 500px;
             @include prefix((
                 transform: translate(10px, 10px)
             ));
@@ -37,6 +40,10 @@
                 transform: translate(-10px, -10px)
             ));
 
+            @include tablet {
+                padding: 3em 2em;
+            }
+
             div > p {
                 margin: 0;
 
@@ -44,6 +51,7 @@
                     font-size: 2.3em;
                     color: $secondary;
                     text-transform: uppercase;
+                    line-height: 1.2;
 
                     span {
                         display: block;

@@ -9,7 +9,7 @@ const TeamSection = () => {
     const { teams } = useContext(ContentContext)
 
     return(
-        <section id="teams">
+        <section id="teams" aria-labelledby="teams_section">
             <div className="section-content">
                 <p className="section-title">Meet with experts</p>
                 <div className="team-list grid grid--gap-10">
