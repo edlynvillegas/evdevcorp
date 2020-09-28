@@ -15,7 +15,9 @@ const Services = () => {
         <>
             <Helmet>
                 <title>{long_name} - Our Services</title>
+                <meta name="og:title" content={`${long_name} - Our Services`} />
                 <meta name="description" content={meta_desc.services} />
+                <meta name="og:description" content={meta_desc.services} />
             </Helmet>
             <Banner state='Services' />
             <ServicesSection />

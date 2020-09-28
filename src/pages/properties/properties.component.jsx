@@ -18,7 +18,9 @@ const Properties = () => {
         <>
             <Helmet>
                 <title>{long_name} - Our Properties</title>
+                <meta name="og:title" content={`${long_name} - Our Properties`} />
                 <meta name="description" content={meta_desc.properties} />
+                <meta name="og:description" content={meta_desc.properties} />
             </Helmet>
             <Banner state='Properties' bg={BackgroundImage} />
             <FutureProjects/>
