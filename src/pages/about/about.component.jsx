@@ -17,9 +17,11 @@ const About = () => {
         <>
             <Helmet>
                 <title>{long_name} - About Us</title>
-                <meta name="og:title" content={`${long_name} - About Us`} />
                 <meta name="description" content={meta_desc.about} />
+                <meta name="og:title" content={`${long_name} - About Us`}  />
                 <meta name="og:description" content={meta_desc.about} />
+                <meta name="twitter:title" content={`${long_name} - About Us`}  />
+                <meta name="twitter:description" content={meta_desc.about} />
             </Helmet>
             <Banner state='About' />
             <AboutSection/>

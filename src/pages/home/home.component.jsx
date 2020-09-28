@@ -22,9 +22,11 @@ const Home = () => {
         <>
             <Helmet>
                 <title>{long_name} - Home</title>
-                <meta name="og:title" content={`${long_name} - Home`} />
                 <meta name="description" content={meta_desc.home} />
+                <meta name="og:title" content={`${long_name} - Home`} />
                 <meta name="og:description" content={meta_desc.home} />
+                <meta name="twitter:title" content={`${long_name} - Home`} />
+                <meta name="twitter:description" content={meta_desc.home} />
             </Helmet>
             <Banner state='Main' bg={BackgroundImage} />
             <ServicesSection/>
