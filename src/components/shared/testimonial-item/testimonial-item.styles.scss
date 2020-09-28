@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import '../../../mixins';
 
 .testimonial-item {
     background-color: $primary;
@@ -15,6 +15,14 @@
                 color: $secondary;
                 text-transform: uppercase;
             }
+
+            @include tablet($max: true) {
+                font-size: 0.6em;
+
+                &:first-child {
+                    font-size: 1em;
+                }
+            }
         }
     }
 
@@ -27,11 +35,20 @@
         img {
             width: 100%;
         }
+        
+        @include tablet($max: true) {
+            height: 140px;
+        }
     }
 
     p.message {
         color: transparentize($light, 0.4);
         font-style: italic;
         line-height: 1.8;
+        
+        @include tablet($max: true) {
+            font-size: 0.8em;
+            line-height: 1.2;
+        }
     }
 }

@@ -8,7 +8,7 @@ import { ReactComponent as LinkedinSVG } from '../../../assets/images/icons/link
 
 const TeamItem = ({ name, position, description, image, socials }) => {
     return(
-        <div className="team-item grid__col-4 grid__col-tb-12">
+        <div className="team-item grid__col-4 grid__col-mb-12">
             <img src={image} alt={name} />
             <div className="item-info">
                 <div>

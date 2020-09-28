@@ -5,5 +5,9 @@ section#teams {
 
     .section-content {
         padding-top: 8em;
+
+        @include mobile {
+            padding-top: 5em;
+        }
     }
 }

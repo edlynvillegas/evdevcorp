@@ -1,0 +1,40 @@
+@import '../../../mixins';
+
+section#timeline {
+    overflow-x: unset;
+
+    .section-content {
+        margin-bottom: -5em;
+        padding: 4em 20px 6em 5em;
+        background-color: lighten($primary, 86%);
+        color: $dark;
+        z-index: 1;
+
+        @include tablet {
+            padding: 3em 20px 3em 3em;
+        }
+        @include mobile {
+            margin-bottom: -3em;
+            padding: 3em 20px 3em 2em;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            @include prefix((width: calc((100vw - 100%)/2)), true);
+            background-color: lighten($primary, 86%);
+            @include prefix((transform: translateX(100%)));
+        }
+
+        &.--down::before {
+            @include prefix((height: calc(100% - 5em)), true);
+            
+            @include mobile {
+                @include prefix((height: calc(100% - 3em)), true);
+            }
+        }
+    }
+}

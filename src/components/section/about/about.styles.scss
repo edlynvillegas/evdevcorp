@@ -1,28 +1,90 @@
-@import '../../../variables';
 @import '../../../mixins';
 
 section#about {
-    .section-content {
-        margin-bottom: -5em;
-        padding-left: 5em;
-        padding-right: 20px;
-        background-color: lighten($primary, 86%);
-        color: $dark;
-        z-index: 1;
+    &::before { content: none }
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            @include prefix((width: calc((100vw - 100%)/2)), true);
-            background-color: lighten($primary, 86%);
-            @include prefix((transform: translateX(100%)));
+    .section-content {
+        padding: 0;
+        max-width: unset;
+
+        &::before {
+            // height: 100%;
+            @include prefix((width: calc((100vw - 920px)/2)), true, webkit moz);
+            @include prefix((transition: height 1.3s ease 400ms, transform: translateX(0)));
+            background-color: transparentize(lighten($primary, 10%), 0.5);
+            z-index: -1;
+
+            @include tablet {
+                @include prefix((width: calc((100vw - (100% - 60px))/2)), true, webkit moz);
+            }
         }
 
-        &.--down::before {
-            @include prefix((height: calc(100% - 5em)), true);
+        figure {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            
+            @include tablet {
+                height: 100%;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: lighten($primary, 10%);
+                @include prefix((transition: opacity 600ms ease));
+                opacity: 0.4;
+            }
+
+            &:hover::after {
+                opacity: 0;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        > div {
+            padding: 5em 3em;
+
+            @include tablet {
+                padding: 3em 2em;
+            }
+            
+            p:not(.section-title) {
+                line-height: 2;
+
+                @include tablet {
+                    font-size: 0.8em;
+                    line-height: 1.6;
+                    margin-bottom: 30px;
+                }
+            }
+
+            .socials {
+                a {
+                    display: inline-block;
+                    margin-right: 8px;
+
+                    svg {
+                        display: block;
+                        width: 40px;
+                        height: 40px;
+
+                        path:last-child {
+                            fill: $light
+                        }
+                    }
+                }
+            }
         }
     }
 }

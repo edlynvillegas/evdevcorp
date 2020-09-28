@@ -5,7 +5,7 @@ import StarRatings from '../../star-ratings/star-ratings.component'
 
 const TestimonialItem = ({ name, position, image, message, ratings }) => {
     return(
-        <div className="testimonial-item grid__col-4 grid__col-sm-12">
+        <div className="testimonial-item grid__col-4 grid__col-mb-12">
             <div className="item-info">
                 <p>{name}</p>
                 <p>{position}</p>

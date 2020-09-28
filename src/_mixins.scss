@@ -13,12 +13,19 @@
 @mixin mid-width($s:0) {
     width: 100%;
     @include desktop {
+        // @if ($s == 'small') {
+        //     max-width: 980px;
+        // } @else if ($s == 'medium') {
+        //     max-width: 1000px;
+        // } @else {
+        //     max-width: 1366px;
+        // }
         @if ($s == 'small') {
-            max-width: 1000px;
+            max-width: 800px;
         } @else if ($s == 'medium') {
-            max-width: 1200px;
+            max-width: 920px;
         } @else {
-            max-width: 1366px;
+            max-width: 1200px;
         }
     }
     @include laptop {
@@ -39,6 +46,9 @@
             max-width: calc(100% - 40px);
         }
     }
+    @include mobile {
+        max-width: calc(100% - 40px);
+    }
     margin: 0 auto;
 }
 
@@ -49,6 +59,10 @@
     transition: all 400ms ease;
     margin: 0;
     cursor: pointer;
+
+    @include tablet($max: true) {
+        padding: 6px 18px;
+    }
   
     @if ($outline != 0) { background: transparentize($color, 0.8); }
     @else { background: $color; }

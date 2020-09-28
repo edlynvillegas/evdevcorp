@@ -1,0 +1,24 @@
+@import '../../../mixins';
+
+.timeline-item {
+    p {
+        margin-top: 0;
+
+        &:first-of-type {
+            font-size: 2em;
+            margin-bottom: 10px;
+
+            @include tablet($max: true) {
+                font-size: 1.8em;
+                margin-bottom: 0;
+            }
+        }
+        &:last-of-type {
+            font-size: 0.8em;
+
+            @include tablet($max: true) {
+                line-height: 1.4;
+            }
+        }
+    }
+}

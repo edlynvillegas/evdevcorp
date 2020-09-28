@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
 // Components
-import AboutItem from '../about-item/about-item.component'
+import TimelineItem from '../timeline-item/timeline-item.component'
 // Providers
 import { ContentContext } from '../../../providers/ContentProvider'
 
-const AboutList = () => {
+const TimelineList = () => {
     const { timeline } = useContext(ContentContext)
 
     return(
         <div className="about-list grid grid--gap-20">
             {
-                timeline.map((tl, index) => <AboutItem key={index} {...tl} />)
+                timeline.map((tl, index) => <TimelineItem key={index} {...tl} />)
             }
         </div>
     )
 }
 
-export default React.memo(AboutList)
+export default React.memo(TimelineList)

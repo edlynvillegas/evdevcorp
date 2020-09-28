@@ -1,23 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './ongoing-projects.styles.scss'
-// Providers
-import { ContentContext } from '../../../providers/ContentProvider'
 // Components
-import OPItem from '../../shared/op-item/op-item.component'
+import OPList from '../../shared/op-list/op-list.component'
 
-const OngoingProjects = () => {
-    const { projects } = useContext(ContentContext)
+const OngoingProjects = ({ limit }) => {
 
     return(
         <section id="oprojects" aria-labelledby="ongoing_projects_section">
             <div className="section-content">
                 <p className="section-title">On-going projects</p>
-
-                <div className="project-list">
-                    {
-                        projects.map(proj => <OPItem key={proj.id} {...proj} />)
-                    }
-                </div>
+                <OPList limit={limit} />
             </div>
         </section>
     )

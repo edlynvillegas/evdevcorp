@@ -10,7 +10,6 @@ export default function useWindowScroll() {
     const [scroll, setScroll] = useState(initial_spec)
 
     useEffect(() => {
-        // console.log('useWindowScroll')
         scrollListener()
         // eslint-disable-next-line
     }, [])
@@ -31,12 +30,10 @@ export default function useWindowScroll() {
 
     useEventListener('scroll', scrollListener)
 
-    // useEffect(() => {
-    //     window.addEventListener('scroll', scrollListener)
-    //     scrollListener()
-    //     return () => window.removeEventListener('scroll', scrollListener)
-    //     // eslint-disable-next-line
-    // }, [])
-
-    return { ...scroll }
+    // Scroll to top
+    const scrollTop = () => {
+        window.scrollTo(0, 0)
+    }
+    
+    return { ...scroll, scrollTop }
 }

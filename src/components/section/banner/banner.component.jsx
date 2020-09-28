@@ -7,7 +7,7 @@ import { ContentContext } from '../../../providers/ContentProvider'
 import BannerSpan from '../../shared/banner-span/banner-span.component'
 
 const Banner = ({ state, bg }) => {
-    const { title, subtitle } = useContext(ContentContext)
+    const { name, short_desc } = useContext(ContentContext)
     const isMain = state === 'Main';
     let history = useHistory();
     
@@ -18,8 +18,8 @@ const Banner = ({ state, bg }) => {
                     {
                         isMain ?
                         <div>
-                            <h1 className="--w-md">Dream & Build it with {title}</h1>
-                            <p>{subtitle}</p>
+                            <h1 className="--w-md">Dream & Build it with {name}</h1>
+                            <p>{short_desc}</p>
                             <button role="link" className="btn-secondary" onClick={() => history.push('/about')}>About Us</button>
                             <button role="link" className="btn-light-outline" onClick={() => history.push('/properties')}>Our Properties</button>
                         </div> :

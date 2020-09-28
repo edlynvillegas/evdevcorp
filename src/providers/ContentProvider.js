@@ -14,11 +14,24 @@ export const ContentContext = createContext();
 
 const ContentProvider = ({ children }) => {
     const data = {
-        title: 'EVDevCorp.',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+        name: 'EVDevCorp.',
+        long_name: 'EV Development Corporation',
+        full_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+        meta_desc: {
+            home: 'EV Development Corporation is a lorem ipsum dolor sit amet',
+            about: 'We are a established construction company since 2011',
+            properties: 'We have over 160+ successful projects and 76+ satisfied and loyal clients who trust us 100% for their real state projects.',
+            services: 'We serve our clients from the best possible, from planning to construction.'
+        },
         hotline: "8-700-350",
         email: 'inquire@evdevcorp.com',
         address: 'ESV Corporation',
+        socials: {
+            facebook: 'www.facebook.com',
+            twitter: 'www.twitter.com',
+            linkedin: 'www.linkedin.com'
+        },
         schedule: {
             day: 'Monday - Friday',
             time: '8AM - 8PM'
@@ -163,6 +176,34 @@ const ContentProvider = ({ children }) => {
             },
             {
                 id: 4,
+                title: 'Charm Residences',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                address: 'Flex Avenue, Cainta',
+                image: CharmIMG
+            },
+            {
+                id: 5,
+                title: 'Green Residences',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                address: 'Morong, Rizal',
+                image: GreenIMG
+            },
+            {
+                id: 6,
+                title: 'Berkeley Residences',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                address: 'Paranaque',
+                image: RedmondIMG
+            },
+            {
+                id: 7,
+                title: 'Gem Residences',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                address: 'Pasig City',
+                image: GemIMG
+            },
+            {
+                id: 8,
                 title: 'Charm Residences',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
                 address: 'Flex Avenue, Cainta',

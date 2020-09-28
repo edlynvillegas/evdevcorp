@@ -9,6 +9,13 @@
     ));
     overflow: hidden;
 
+    @include tablet {
+        height: 350px;
+    }
+    @include mobile {
+        height: 520px;
+    }
+
     & > img {
         width: 100%;
         height: 100%;
@@ -28,6 +35,10 @@
         @include prefix((
             transition: all 400ms ease
         ));
+
+        @include tablet {
+            padding: 2em 1em;
+        }
 
         &::before {
             content: '';
@@ -55,6 +66,15 @@
             ));
             opacity: 0;
             overflow: hidden;
+
+            @include tablet {
+                width: 50px;
+                height: 50px;
+            }
+            @include mobile {
+                width: 80px;
+                height: 80px;
+            }
 
             img {
                 width: 100%;
@@ -88,6 +108,32 @@
                 line-height: 2;
             }
             @include nth-transition-delay(2, 3);
+            
+
+            @include tablet {
+                &:nth-of-type(1) {
+                    font-size: 1em;
+                    margin-bottom: 0;
+                }
+                &:nth-of-type(2) {
+                    font-size: 0.7em;
+                    margin-bottom: 10px;
+                }
+            }
+            @include mobile {
+                &:nth-of-type(1) {
+                    font-size: 2em;
+                    margin-bottom: 0;
+                }
+                &:nth-of-type(2) {
+                    font-size: 1.2em;
+                    margin-bottom: 10px;
+                }
+                &:nth-of-type(3) {
+                    font-size: 1em;
+                    line-height: 1.8em;
+                }
+            }
         }
 
         & > div:last-child {
@@ -103,6 +149,11 @@
                 
                 svg {
                     display: block;
+
+                    @include mobile {
+                        width: 40px;
+                        height: 40px;
+                    }
                     path:last-child {
                         fill: $light;
                     }
