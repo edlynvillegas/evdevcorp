@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react'
+import React, { useContext } from 'react'
 import './social-widget.styles.scss'
 // Providers
 import { ContentContext } from '../../../providers/ContentProvider'
