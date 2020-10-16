@@ -16,7 +16,7 @@
                 text-transform: uppercase;
             }
 
-            @include tablet($max: true) {
+            @include tablet {
                 font-size: 0.6em;
 
                 &:first-child {
@@ -36,7 +36,7 @@
             width: 100%;
         }
         
-        @include tablet($max: true) {
+        @include tablet {
             height: 140px;
         }
     }
@@ -46,7 +46,7 @@
         font-style: italic;
         line-height: 1.8;
         
-        @include tablet($max: true) {
+        @include tablet {
             font-size: 0.8em;
             line-height: 1.2;
         }

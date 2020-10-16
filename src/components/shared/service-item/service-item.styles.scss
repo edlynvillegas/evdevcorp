@@ -1,23 +1,57 @@
-@import '../../../variables';
+@import '../../../mixins';
 
 .service-item {
     .item-content {
+        position: relative;
         padding: 1.5em;
         background-color: $primary;
-        border-bottom: 2px solid $secondary;
         box-shadow: 0 0 0.5em rgba($primary, 0.65);
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $secondary;
+            @include prefix((transition: width 400ms ease));
+            // @include prefix((transform: translateX(50%)));
+        }
+
+        svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+
+            path {
+                @include prefix((transition: fill 400ms ease));
+                fill: $light
+            }
+        }
 
         p {
             margin: 0;
 
-            &:first-child {
+            &:first-of-type {
                 font-size: 1.3em;
                 font-weight: 500;
                 margin-bottom: 10px;
             }
-            &:last-child {
+            &:last-of-type {
                 font-size: 0.8em;
                 line-height: 2;
+                opacity: 0.8;
+            }
+        }
+
+        &:hover {
+            &::before {
+                width: 100%;
+            }
+
+            svg path {
+                fill: $secondary
             }
         }
     }

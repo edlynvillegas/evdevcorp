@@ -174,8 +174,12 @@
 }
 
 // MEDIA QUERIES
-@mixin mobile() {
-    @media only screen and (max-width: #{device(mobile)}) { @content; }
+@mixin mobile($size:0) {
+    @if $size == 'xs' {
+        @media only screen and (max-width: #{device(mobile_xs)}) { @content; }
+    } @else {
+        @media only screen and (max-width: #{device(mobile)}) { @content; }
+    }
 }
 @mixin tablet($min: false, $max: false) {
     @if $min {

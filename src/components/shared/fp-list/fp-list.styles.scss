@@ -6,4 +6,11 @@
     @include tablet {
         @include mid-width('medium');
     }
+    @include mobile {
+        max-width: unset;
+
+        .slider-item {
+            padding: 0 10px;
+        }
+    }
 }

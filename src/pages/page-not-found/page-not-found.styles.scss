@@ -1,5 +1,38 @@
-
+@import '../../mixins';
 
 section#page-not-found {
     height: 100vh;
+    @include background-image('pexels-omkar-patyane-14651.jpg');
+
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include mid-width;
+
+        @include tablet {
+            @include mid-width('medium');
+        }
+
+        h1 {
+            font-size: 4em;
+            line-height: 1;
+            margin: 0 0 20px;
+
+            span {
+                color: $secondary;
+            }
+        }
+
+        p {
+            font-size: 1.5em;
+            width: 55%;
+            margin: 0 0 20px;
+            opacity: 0.8;
+        }
+
+        button {
+            display: inline-block;
+        }
+    }
 }

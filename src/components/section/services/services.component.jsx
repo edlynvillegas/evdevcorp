@@ -5,7 +5,7 @@ import { ContentContext } from '../../../providers/ContentProvider'
 // Components
 import ServiceItem from '../../shared/service-item/service-item.component'
 
-const ServicesSection = () => {
+const ServicesSection = ({ summary }) => {
     const { services } = useContext(ContentContext)
 
     return(
@@ -13,9 +13,7 @@ const ServicesSection = () => {
             <div className="section-content">
                 <p className="section-title">High quality construction solutions<br/>for residentials & industries</p>
                 <div className="service-list grid grid--gap-20">
-                    {
-                        services.map(service => <ServiceItem key={service.id} {...service} />)
-                    }
+                    { services.map(service => <ServiceItem key={service.id} {...service} summary={summary} />) }
                 </div>
             </div>
         </section>

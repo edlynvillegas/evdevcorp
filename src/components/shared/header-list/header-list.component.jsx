@@ -3,15 +3,7 @@ import './header-list.styles.scss'
 // Components
 import HeaderLink from '../header-link/header-link.component'
 
-const routes = [
-    { path: "/", name: 'Home' },
-    { path: "/about", name: 'About' },
-    { path: "/properties", name: 'Properties' },
-    { path: "/services", name: 'Services' },
-    { path: "/contact", name: 'Contact' }
-];
-
-const HeaderList = () => (
+const HeaderList = ({ routes }) => (
     <ul className="header-links">
         { routes.map((route, index) => <HeaderLink key={index} {...route} />) }
     </ul>

@@ -2,6 +2,8 @@ import React from 'react'
 import './property-detail.styles.scss'
 // SVGs
 import { ReactComponent as MarkerSVG } from '../../../assets/images/icons/map-pin.svg'
+// Components
+import Button from '../../fields/button/button.component'
 
 const PropertyDetail = ({ title, description, address, image, handleClose }) => {
     const split_title = title.split(' ')
@@ -18,7 +20,7 @@ const PropertyDetail = ({ title, description, address, image, handleClose }) => 
                     <p>{description}</p>
                 </div>
                 <div>
-                    <button className="btn-secondary" onClick={() => handleClose()}>Close detail</button>
+                    <Button spec={{color: 'secondary'}} handleClick={() => handleClose()} value="Close detail"/>
                 </div>
             </div>
         </div>

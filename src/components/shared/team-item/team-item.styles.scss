@@ -199,4 +199,67 @@
             }
         }
     }
+
+    @include mobile {
+        box-shadow: 0 0 3em -1em rgba(0, 0, 0, 0.65);
+
+        @include mobile('xs') {
+            height: 440px;
+        }
+
+        .item-info {
+            background-color: transparentize(darken($primary, 0.5%), 0.4);
+
+            &::before {
+                height: 10px;
+            }
+
+            @include mobile('xs') {
+                padding: 2em 1em;
+            }
+
+            figure {
+                opacity: 1;
+                
+                @include mobile('xs') {
+                    margin-bottom: 20px;
+                }
+
+                img {
+                    @include prefix((
+                        transform: scale(1)
+                    ));
+                }
+            }
+
+            p {
+                @include prefix((
+                    transform: translateX(0)
+                ));
+                opacity: 1;
+                
+                @include mobile('xs') {
+                    &:nth-of-type(1) {
+                        font-size: 1.8em;
+                    }
+                    &:nth-of-type(2) {
+                        font-size: 1em;
+                        margin-bottom: 10px;
+                    }
+                    &:nth-of-type(3) {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            & > div:last-child {
+                a {
+                    @include prefix((
+                        transform: translateY(0)
+                    ));
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }

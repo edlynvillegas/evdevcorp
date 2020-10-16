@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeamItem renders correctly 1`] = `
+<div
+  className="team-item grid__col-4 grid__col-mb-12"
+>
+  <img />
+  <div
+    className="item-info"
+  >
+    <div>
+      <figure>
+        <img />
+      </figure>
+      <p />
+      <p />
+      <p />
+    </div>
+    <div />
+  </div>
+</div>
+`;

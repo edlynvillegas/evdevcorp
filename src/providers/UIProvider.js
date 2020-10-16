@@ -1,15 +1,15 @@
-// import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 
-// export const UIContext = createContext();
+export const UIContext = createContext();
 
-// const UIProvider = ({ children }) => {
-//     const scrollToTop
+const UIProvider = ({ children }) => {
+    const [isSidebar, setSidebar] = useState(false)
 
-//     return (
-//         <UIContext.Provider value={{...data}}>
-//             {children}
-//         </UIContext.Provider>
-//     )
-// }
+    return (
+        <UIContext.Provider value={{isSidebar, setSidebar}}>
+            {children}
+        </UIContext.Provider>
+    )
+}
 
-// export default React.memo(UIProvider);
+export default React.memo(UIProvider);

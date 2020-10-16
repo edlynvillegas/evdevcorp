@@ -23,7 +23,7 @@ export default function useElementScroll(el) {
                 height: el.offsetHeight
             }
         }
-        return () => elOffset.current = null
+        // return () => elOffset.current = null
         // eslint-disable-next-line
     }, [el])
 
@@ -40,7 +40,7 @@ export default function useElementScroll(el) {
                 isPassed: prev.isPassed ? prev.isPassed : false
             }))
         }
-        return () => setElScroll(initialState)
+        return () => setElScroll(prev => prev)
         // eslint-disable-next-line
     }, [el, top, height])
 

@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 // Projects
 import GreenIMG from '../assets/images/shots/pexels-adrien-olichon-3534806.jpg';
 import RedmondIMG from '../assets/images/shots/pexels-david-underland-3795260.jpg';
@@ -9,11 +9,17 @@ import GemIMG from '../assets/images/shots/pexels-daria-shevtsova-1030974.jpg';
 import Team1IMG from '../assets/images/shots/pexels-dinielle-de-veyra-4195342.jpg';
 import Team2IMG from '../assets/images/shots/pexels-dellon-thomas-2474307.jpg';
 import Team3IMG from '../assets/images/shots/pexels-chloe-kala-1043471.jpg';
+// Services SVGs
+import { ReactComponent as ProjectSVG } from '../assets/images/icons/project.svg';
+import { ReactComponent as PlanSVG } from '../assets/images/icons/plan.svg';
+import { ReactComponent as TilesSVG } from '../assets/images/icons/tiles.svg';
+import { ReactComponent as ComputerSVG } from '../assets/images/icons/computer.svg';
+import { ReactComponent as ArchitectureSVG } from '../assets/images/icons/architecture.svg';
 
 export const ContentContext = createContext();
 
 const ContentProvider = ({ children }) => {
-    const data = {
+    const initialState = {
         name: 'EVDevCorp.',
         long_name: 'EV Development Corporation',
         full_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -28,9 +34,9 @@ const ContentProvider = ({ children }) => {
         email: 'inquire@evdevcorp.com',
         address: 'ESV Corporation',
         socials: {
-            facebook: 'www.facebook.com',
-            twitter: 'www.twitter.com',
-            linkedin: 'www.linkedin.com'
+            facebook: 'https://www.facebook.com',
+            twitter: 'https://www.twitter.com',
+            linkedin: 'https://www.linkedin.com'
         },
         schedule: {
             day: 'Monday - Friday',
@@ -40,31 +46,43 @@ const ContentProvider = ({ children }) => {
             {
                 id: 1,
                 title: 'Planning',
+                icon: <ProjectSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             },
             {
                 id: 2,
                 title: 'Construction',
+                icon: <TilesSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             },
             {
                 id: 3,
                 title: 'Renovation',
+                icon: <ArchitectureSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             },
             {
                 id: 4,
                 title: 'Creative Art',
+                icon: <ComputerSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             },
             {
                 id: 5,
                 title: 'Architecture',
+                icon: <PlanSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             },
             {
                 id: 6,
                 title: 'Foresight',
+                icon: <PlanSVG/>,
+                short_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
             }
         ],
@@ -234,9 +252,10 @@ const ContentProvider = ({ children }) => {
             }
         ]
     }
+    const [data, setData] = useState(initialState)
 
     return (
-        <ContentContext.Provider value={{...data}}>
+        <ContentContext.Provider value={{...data, setData}}>
             {children}
         </ContentContext.Provider>
     )

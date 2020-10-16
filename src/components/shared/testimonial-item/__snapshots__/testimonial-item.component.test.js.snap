@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[TestimonialItem] renders correctly 1`] = `
+<div
+  className="testimonial-item grid__col-4 grid__col-mb-12"
+>
+  <div
+    className="item-info"
+  >
+    <p />
+    <p />
+  </div>
+  <figure>
+    <img />
+  </figure>
+  <p
+    className="message"
+  />
+  <div
+    aria-labelledby="undefined stars"
+    className="star-ratings"
+    title="undefined stars"
+  >
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`TestimonialItem renders correctly 1`] = `
+<div
+  className="testimonial-item grid__col-4 grid__col-mb-12"
+>
+  <div
+    className="item-info"
+  >
+    <p />
+    <p />
+  </div>
+  <figure>
+    <img />
+  </figure>
+  <p
+    className="message"
+  />
+  <div
+    aria-labelledby="undefined stars"
+    className="star-ratings"
+    title="undefined stars"
+  >
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+    <svg
+      className={null}
+    >
+      star.svg
+    </svg>
+  </div>
+</div>
+`;

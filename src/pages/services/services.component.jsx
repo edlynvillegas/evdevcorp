@@ -2,11 +2,14 @@ import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet';
 // Components
 import Banner from '../../components/section/banner/banner.component'
+// Images
+import BackgroundImage from '../../assets/images/shots/pexels-kateryna-babaieva-2747017.jpg'
 // Sections
 import ServicesSection from '../../components/section/services/services.component'
+import Testimonials from '../../components/section/testimonials/testimonials.component'
+import QuoteForm from '../../components/section/quote-form/quote-form.componnet'
 // Providers
 import { ContentContext } from '../../providers/ContentProvider'
-
 
 const Services = () => {
     const { long_name, meta_desc } = useContext(ContentContext)
@@ -21,8 +24,10 @@ const Services = () => {
                 <meta name="twitter:title" content={`${long_name} - Our Services`} />
                 <meta name="twitter:description" content={meta_desc.services} />
             </Helmet>
-            <Banner state='Services' />
+            <Banner state='Services' bg={BackgroundImage} />
             <ServicesSection />
+            <Testimonials/>
+            <QuoteForm/>
         </>
     )
 }

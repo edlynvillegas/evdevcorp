@@ -3,10 +3,15 @@ $light: #fff;
 $dark: #252525;
 $primary: #0b122e;
 $secondary: #ffb400;
+$light_primary: #708cff;
+
+$valid: #38d036;
+$invalid: #ff4a4a;
 
 $columns: 12;
 
 $breakpoints: (
+  mobile_xs: 320px,
   mobile: 576px,
   tablet: 1024px,
   laptop: 1440px

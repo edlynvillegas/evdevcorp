@@ -4,10 +4,11 @@ import { Helmet } from 'react-helmet';
 // Components
 import Banner from '../../components/section/banner/banner.component'
 // Images
-import BackgroundImage from '../../assets/images/shots/banner_main.jpg'
+import BackgroundImage from '../../assets/images/shots/pexels-kateryna-babaieva-2747017.jpg'
 // Components
 import FutureProjects from '../../components/section/future-projects/future-projects.component'
 import OngoingProjects from '../../components/section/ongoing-projects/ongoing-projects.component'
+import QuoteForm from '../../components/section/quote-form/quote-form.componnet'
 // Providers
 import { ContentContext } from '../../providers/ContentProvider'
 
@@ -27,6 +28,7 @@ const Properties = () => {
             <Banner state='Properties' bg={BackgroundImage} />
             <FutureProjects/>
             <OngoingProjects/>
+            <QuoteForm/>
         </>
     )
 }

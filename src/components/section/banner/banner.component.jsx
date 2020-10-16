@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { ContentContext } from '../../../providers/ContentProvider'
 // Components
 import BannerSpan from '../../shared/banner-span/banner-span.component'
+import Button from '../../fields/button/button.component'
 
 const Banner = ({ state, bg }) => {
     const { name, short_desc } = useContext(ContentContext)
@@ -20,8 +21,8 @@ const Banner = ({ state, bg }) => {
                         <div>
                             <h1 className="--w-md">Dream & Build it with {name}</h1>
                             <p>{short_desc}</p>
-                            <button role="link" className="btn-secondary" onClick={() => history.push('/about')}>About Us</button>
-                            <button role="link" className="btn-light-outline" onClick={() => history.push('/properties')}>Our Properties</button>
+                            <Button spec={{color: 'secondary'}} role="link" handleClick={() => history.push('/about')} value="About Us"/>
+                            <Button spec={{color: 'light', type: 'outline'}} role="link" handleClick={() => history.push('/properties')} value="Our Properties"/>
                         </div> :
                         <h1 className="font_anton">{state}</h1>
                     }

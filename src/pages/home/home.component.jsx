@@ -11,7 +11,8 @@ import FutureProjectsSection from '../../components/section/future-projects/futu
 import TimelineSection from '../../components/section/timeline/timeline.component'
 import TeamSection from '../../components/section/team/team.component'
 import OngoingProjects from '../../components/section/ongoing-projects/ongoing-projects.component'
-import Testomonials from '../../components/section/testimonials/testimonials.component'
+import Testimonials from '../../components/section/testimonials/testimonials.component'
+import QuoteForm from '../../components/section/quote-form/quote-form.componnet'
 // Providers
 import { ContentContext } from '../../providers/ContentProvider'
 
@@ -29,12 +30,13 @@ const Home = () => {
                 <meta name="twitter:description" content={meta_desc.home} />
             </Helmet>
             <Banner state='Main' bg={BackgroundImage} />
-            <ServicesSection/>
+            <ServicesSection summary />
             <FutureProjectsSection/>
             <TimelineSection/>
             <TeamSection/>
             <OngoingProjects limit={4} />
-            <Testomonials/>
+            <Testimonials/>
+            <QuoteForm/>
         </>
     )
 }

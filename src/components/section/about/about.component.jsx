@@ -27,11 +27,17 @@ const AboutSection = () => {
                     <p className="section-title">About the company</p>
                     <p>{full_desc}</p>
 
-                    <div className="socials">
-                        <Link to={socials.facebook} title="Facebook"><FacebookSVG/></Link>
-                        <Link to={socials.twitter} title="Twitter"><TwitterSVG/></Link>
-                        <Link to={socials.linkedin} title="Linkedin"><LinkedinSVG/></Link>
-                    </div>
+                    <ul className="socials">
+                        <li>
+                            <Link to={socials.facebook} title="Facebook"><FacebookSVG/> EV Development Corporation</Link>
+                        </li>
+                        <li>
+                            <Link to={socials.twitter} title="Twitter"><TwitterSVG/> @ev_devcorp</Link>
+                        </li>
+                        <li>
+                            <Link to={socials.linkedin} title="Linkedin"><LinkedinSVG/> /evdevcorp</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

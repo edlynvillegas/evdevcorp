@@ -1,0 +1,60 @@
+@import '../../../mixins';
+
+.social-widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        justify-content: space-between;
+    }
+
+    .social-widget__social-item {
+        padding: 12px 15px;
+        margin-right: 10px;
+        color: $light;
+        cursor: pointer;
+
+        &:last-child { margin-right: 0; }
+
+        &.facebook { background-color: #14268c; }
+        &.twitter { background-color: #01a3ce; }
+        &.linkedin { background-color: #1b71c3; }
+
+        @include mobile {
+            flex-grow: 1;
+        }
+
+        .social-item__social-icon {
+            width: 35px;
+            height: 35px;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: rgba($light, 0.15);
+            margin: 0 auto 10px;
+
+            @include mobile {
+                width: 50px;
+                height: 50px;
+                padding: 10px;
+            }
+
+            svg {
+                width: 25px;
+                height: 25px;
+
+                @include mobile {
+                    width: 30px;
+                    height: 30px;
+                }
+                
+                path:last-child { fill: $light }
+            }
+        }
+
+        p.social-item__social-count {
+            font-size: 0.8em;
+            text-align: center;
+        }
+    }
+}

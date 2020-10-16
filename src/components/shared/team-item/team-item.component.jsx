@@ -20,9 +20,9 @@ const TeamItem = ({ name, position, description, image, socials }) => {
                     <p>{description}</p>
                 </div>
                 <div>
-                    { socials.facebook ? <a href={socials.facebook}><FacebookSVG/></a> : null }
-                    { socials.twitter ? <a href={socials.twitter}><TwitterSVG/></a> : null }
-                    { socials.linkedin ? <a href={socials.linkedin}><LinkedinSVG/></a> : null }
+                    { socials && socials.facebook ? <a href={socials.facebook}><FacebookSVG/></a> : null }
+                    { socials && socials.twitter ? <a href={socials.twitter}><TwitterSVG/></a> : null }
+                    { socials && socials.linkedin ? <a href={socials.linkedin}><LinkedinSVG/></a> : null }
                 </div>
             </div>
         </div>

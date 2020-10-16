@@ -22,6 +22,27 @@ body {
   color: $light;
   background-color: $primary;
   overflow-x: hidden;
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 200ms ease;
+    z-index: 998;
+  }
+
+  &.--has-backdrop {
+    overflow: hidden;
+
+    &::after {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+    }
+  }
 }
 
 a {
@@ -41,55 +62,76 @@ section {
   overflow-x: hidden;
 
   &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $primary;
-      opacity: 0.8;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary;
+    opacity: 0.8;
   }
 
   .section-content {
-      position: relative;
-      @include mid-width('medium');
-      height: 100%;
-      padding: 4em 0 6em;
+    position: relative;
+    @include mid-width('medium');
+    height: 100%;
+    padding: 4em 0 6em;
+        
+    @include mobile('xs') {
+      padding: 3em 0;
+    }
 
-      &.--right::before,
-      &.--left::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        @include prefix((width: calc((100vw - 100%)/2)), true, webkit moz);
-        height: 0;
-        @include prefix((transition: height 1.3s ease 400ms, transform: translateX(100%)));
-        background-color: $secondary;
-      }
-      &.--left::before { left: 0; right: unset; @include prefix((transform: translateX(-100%))); }
+    &.--right::before,
+    &.--left::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include prefix((width: calc((100vw - 100%)/2)), true, webkit moz);
+      height: 0;
+      @include prefix((transition: height 1.3s ease 400ms, transform: translateX(100%)));
+      background-color: $secondary;
+    }
+    &.--left::before { left: 0; right: unset; @include prefix((transform: translateX(-100%))); }
+    
+    &.--right.--down::before, &.--left.--down::before { height: 100%; }
+    &.--right.--up::before, &.--left.--up::before { top: unset; bottom: 0; height: 100%; }
+
+    p.section-title {
+      font-family: 'Anton', sans-serif;
+      text-transform: capitalize;
+      font-size: 1.6em;
+      line-height: 1.6;
+      margin-top: 0;
       
-      &.--right.--down::before, &.--left.--down::before { height: 100%; }
-      &.--right.--up::before, &.--left.--up::before { top: unset; bottom: 0; height: 100%; }
-
-      p.section-title {
-        font-family: 'Anton', sans-serif;
-        text-transform: capitalize;
-        font-size: 1.6em;
-        line-height: 1.6;
-        margin-top: 0;
+      @include mobile() {
+        font-size: 1.4em;
       }
+      
+      @include mobile('xs') {
+        font-size: 1.2em;
+      }
+    }
   }
 }
 
 .full-vh { height: 100vh; }
 .half-vh { height: 50vh; }
 
-.btn-light { @include button-bg($light); }
-.btn-light-outline { @include button-bg($light, true); }
-.btn-primary { @include button-bg($primary); }
-.btn-secondary { @include button-bg($secondary); }
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  &.btn-light { @include button-bg($light); }
+  &.btn-light-outline { @include button-bg($light, true); }
+  &.btn-primary { @include button-bg($primary); }
+  &.btn-secondary { @include button-bg($secondary); }
+
+  @include mobile {
+    width: 100%;
+  }
+}
 
 .grid {
     display: -webkit-box;
@@ -109,3 +151,61 @@ section {
 }
 
 @include font-weight;
+
+// Forms
+form {
+  position: relative;
+  
+  .input-group {
+    position: relative;
+    padding-bottom: 25px;
+
+    &:last-of-type {
+      padding-bottom: 0;
+
+      button {
+        margin-top: 20px;
+      }
+    }
+
+    label {
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      // font-family: 'Anton', sans-serif;
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 1em;
+      font-size: 1em;
+      background: none;
+      border: 1px solid #fff;
+      // border-radius: 4px;
+      @extend .font_poppins;
+      @include prefix((transition: all 200ms ease));
+      margin-top: 5px;
+      color: #fff;
+
+      &:focus {
+        outline: none;
+        border-color: $secondary;
+        box-shadow: 0 0 0px 2px $secondary;
+      }
+      &.--error {
+        border-color: $invalid;
+        &:focus { box-shadow: 0 0 0px 2px $invalid; }
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    span {
+      position: absolute;
+      color: $invalid;
+    }
+  }
+}

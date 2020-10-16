@@ -12,12 +12,19 @@
                 font-size: 1.8em;
                 margin-bottom: 0;
             }
+            @include mobile {
+                font-size: 1.4em;
+            }
         }
         &:last-of-type {
             font-size: 0.8em;
+            margin-top: 0;
 
             @include tablet($max: true) {
                 line-height: 1.4;
+            }
+            @include mobile {
+                font-size: 0.8em;
             }
         }
     }

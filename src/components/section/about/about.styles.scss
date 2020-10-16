@@ -53,6 +53,9 @@ section#about {
         }
 
         > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding: 5em 3em;
 
             @include tablet {
@@ -69,18 +72,44 @@ section#about {
                 }
             }
 
-            .socials {
-                a {
-                    display: inline-block;
-                    margin-right: 8px;
+            ul.socials {
+                list-style-type: none;
+                margin: 0;
+                margin-top: 30px;
+                padding: 0;
 
-                    svg {
-                        display: block;
-                        width: 40px;
-                        height: 40px;
+                li {
+                    display: flex;
+                    margin-bottom: 10px;
 
-                        path:last-child {
-                            fill: $light
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        @include prefix((transition: color 400ms ease));
+                        color: $light;
+    
+                        svg {
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 10px;
+    
+                            path:last-child {
+                                fill: $light;
+                                @include prefix((transition: fill 400ms ease));
+                            }
+                        }
+
+                        &:hover {
+                            color: $secondary;
+
+                            svg path:last-child {
+                                fill: $secondary;
+                            }
                         }
                     }
                 }

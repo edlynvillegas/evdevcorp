@@ -1,0 +1,27 @@
+@import '../../mixins'; 
+
+button#toggler {
+    position: fixed;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: $light;
+    @include prefix((transition: all 400ms ease));
+    @include prefix((transform: translateY(calc(-100% - 10px))));
+    z-index: 999;
+
+    &.--visible {
+        @include prefix((transform: translateY(0)));
+        box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.65);
+    }
+
+
+    @include tablet {
+        right: 370px;
+    }
+    @include mobile {
+        right: calc(100% - 70px);
+    }
+}
