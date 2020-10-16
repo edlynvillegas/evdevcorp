@@ -1,5 +1,7 @@
 ## EV Development Corporation
-A landing page website for a construction company
+A landing page website for a construction company.
+
+[Click here for demo](https://evdevcorp.netlify.app/)
 
 ### Technologies used:
 * ReactJS (Hooks, Context API)
